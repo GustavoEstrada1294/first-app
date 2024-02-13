@@ -1,0 +1,7 @@
+<h1>usuario</h1>
+
+<div>
+    <%= @user.email %>
+    <%= link_to 'editar', user_edit_path(@user)%><br>
+    <%= button_to 'Elimina usuario', user_destroy_path(@user), method: :delete %>
+</div>
