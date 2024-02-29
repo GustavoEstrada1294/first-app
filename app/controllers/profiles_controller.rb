@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   skip_before_action :user_has_profile?, only: %i[new create]
   before_action :set_profile, only: %i[ show edit update destroy ]
+  before_action :same_profile?, only: %i[edit update destroy] 
 
   
   def index
@@ -67,4 +68,8 @@ class ProfilesController < ApplicationController
     def profile_params
       params.require(:profile).permit(:name, :city, :country, :birth, :gender, :role)
     end
+
+    def same_profile?
+      redirect_to users_path unless current_user == @profile.user
+  end
 end

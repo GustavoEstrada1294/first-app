@@ -1,7 +1,7 @@
 <h1>usuario</h1>
 
 <div>
-    <%= @user.email %>
+    <%= @user.email %><br>
     <%= link_to 'editar', user_edit_path(@user)%><br>
-    <%= button_to 'Elimina usuario', user_destroy_path(@user), method: :delete %>
+    <%= button_to 'Elimina usuario', user_destroy_path(@user), method: :delete, form: { data: { turbo_confirm: 'are you sure?' } } %>
 </div>

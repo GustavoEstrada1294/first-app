@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<section class="p-10">
+  <%= render @profile %>
+</section>
 
-<%= render @profile %>
-
-<div>
-  <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
-  <%= link_to "Back to profiles", profiles_path %>
-
-  <%= button_to "Destroy this profile", @profile, method: :delete %>
-</div>
+<section>
+  <% @profile.user.articles.each do |article| %>
+    <div class="m-5 p-5 border-2 border-gray-400 rounded ">
+    <span class="font-bold text-lg">
+      <%= article.name %>
+    </span>
+    <span class="font-semibold text-sm">
+      <%= article.description %>
+    </span>
+  <% end %>
+</section>

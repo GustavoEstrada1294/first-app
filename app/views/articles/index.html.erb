@@ -1,9 +1,22 @@
-<h1>Articulos</h1>
+<section class="m-10 p-5"> 
+   <h1 class="main-title">Articulos</h1>
 
-<% @articles.each do |article| %>
-<div>
-   <strong> <%= article.name %></strong><br>
-   <%= article.description %><br>
-   <%= link_to "Ver mas...", article_path(article) %>
-</div>
-<% end %>
+   <% @articles.each do |article| %>
+      <div class="m-10 p-10 rounded-lg border-2 border-blue-200 flex flex-col">
+      <div>
+         <span class="font-bold text-2xl">
+            <%= article.name %><br>
+         </span>
+         <span class="text-sm font-semibold">
+            <%= article.user.email %><br>
+         </span>
+         <span class="text-sm">
+            <%= article.description %><br>
+         </span>
+      </div>
+         <span class="my-3">
+            <%= link_to "Ver mas...", article_path(article), class: "btn-primary bg-blue-800" %>
+         </span>
+      </div>
+   <% end %>
+</section>
